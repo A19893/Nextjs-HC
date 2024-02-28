@@ -16,9 +16,17 @@ export const POST = async (request: NextRequest) => {
         password,
         existingUser.password
       );
+
+      const isVerified = existingUser.isVerified;
       if (!isPasswordMatch) {
         return NextResponse.json(
           { error: "Invalid Email/Password" },
+          { status: 400 }
+        );
+      }
+      else if(!isVerified){
+        return NextResponse.json(
+          { error: "You are not a verified user" },
           { status: 400 }
         );
       }

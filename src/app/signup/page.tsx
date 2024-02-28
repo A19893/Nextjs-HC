@@ -22,15 +22,14 @@ const SignupPage = () => {
     } else {
       setButtonDisabled(true);
     }
-  });
+  }, [user]);
   const onSignup = async () => {
-    try{
-    const response = await  axios.post("/api/users/signup", user);
-    console.log(response,"Signup Success");
-    router.push('/login');
-    }
-    catch(error){
-      console.log("Signup Failed",error);
+    try {
+      const response = await axios.post("/api/users/signup", user);
+      console.log(response, "Signup Success");
+      router.push("/login");
+    } catch (error) {
+      console.log("Signup Failed", error);
     }
   };
 
