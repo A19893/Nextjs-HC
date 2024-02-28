@@ -18,7 +18,7 @@ const LoginPage = () => {
     } else {
       setButtonDisabled(true);
     }
-  });
+  }, [user]);
   const onLogin = async () => {
     try {
       const response = await axios.post("/api/users/login", user);
@@ -28,11 +28,11 @@ const LoginPage = () => {
       console.log("Login Failed", error);
     }
   };
-  
-  const onForgotPassword = async () =>{
+
+  const onForgotPassword = async () => {
     // const response = await axios.post("/api/users/login", user);
     // await sendEmail({email:user.email, emailType:"forgot-password", userId:'htrntj'})
-  }
+  };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 text-2xl">
       <h1>Login</h1>
@@ -66,7 +66,9 @@ const LoginPage = () => {
       <Link href="/signup" className="text-lg">
         Visit Signup Page
       </Link>
-      <p onClick={onForgotPassword} className="cursor-pointer m-4">Forgot Password?</p>
+      <p onClick={onForgotPassword} className="cursor-pointer m-4">
+        Forgot Password?
+      </p>
     </div>
   );
 };
