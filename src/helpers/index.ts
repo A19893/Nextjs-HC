@@ -46,7 +46,7 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
         from: 'yasharora2678@gmail.com',
         to: email,
         subject: emailType==="verify"?'Verify Email':"Reset Your Password",
-        text: emailType==="verify"?`Click on this link ${process.env.DOMAIN}/verifyEmail?token=${hashedToken}`:`Click on this link ${process.env.DOMAIN}/forgotPassword`
+        text: emailType==="verify"?`Click on this link ${process.env.DOMAIN}/verifyEmail?token=${hashedToken}`:`Click on this link ${process.env.DOMAIN}/forgotPassword?id=${userId}`
     })
   } catch (error: any) {
     throw new Error(error.message);

@@ -28,10 +28,10 @@ const LoginPage = () => {
       console.log("Login Failed", error);
     }
   };
-
+ 
   const onForgotPassword = async () => {
-    // const response = await axios.post("/api/users/login", user);
-    // await sendEmail({email:user.email, emailType:"forgot-password", userId:'htrntj'})
+    const {data} = await axios.post("/api/users/forgotPassword", user);
+    console.log(data)
   };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 text-2xl">
